@@ -1,61 +1,61 @@
 # 🎂 Birthday Reminder
 
-Простий та легкий скрипт на Python для Windows, який автоматично запускається разом із системою, відраховує дні до вашого дня народження та створює святкову атмосферу в особливий день!
+A simple and lightweight Python script for Windows that automatically starts with your system, counts down the days until your birthday, and brings a festive mood on your special day!
 
-## ✨ Особливості
-* ⚙️ **Автозапуск:** Автоматично додає себе в реєстр Windows (`CurrentVersion\Run`), щоб працювати у фоні після старту системи.
-* 📅 **Розумний відлік:** Точно рахує дні до наступного дня народження, коректно обробляючи високосні роки (навіть якщо ви народилися 29 лютого!).
-* 🔔 **Сповіщення:** Використовує бібліотеку `plyer` для показу красивих системних нативних сповіщень Windows.
-* 🎉 **Святковий режим:** Коли настає день народження, скрипт показує привітання та автоматично відкриває зображення тортика й запускає святкову мелодію.
+## ✨ Features
+* ⚙️ **Windows Startup Integration:** Automatically adds itself to the Windows Registry (`CurrentVersion\Run`) to run in the background upon system boot.
+* 📅 **Smart Countdown:** Accurately calculates days until your next birthday, handling leap years seamlessly (even if you were born on February 29th!).
+* 🔔 **Native Notifications:** Utilizes the `plyer` library to display beautiful Windows desktop notifications.
+* 🎉 **Celebration Mode:** When the big day arrives, it flashes a celebration notice and automatically opens a birthday cake image alongside your festive music.
 
-## 📁 Структура проєкту
-Для коректної роботи програми, файли в папці мають бути розташовані наступним чином:
+## 📁 Project Structure
+For the script to work properly, make sure your project directory is structured as follows:
 ```text
 MyBirthday/
 │
-├── birthday.py       # Головний скрипт програми
-├── cake.png          # Зображення з тортиком
-└── music.mid         # Святкова мелодія (формат MIDI або MP3)
+├── birthday.py       # Main Python script
+├── cake.png          # Birthday cake image
+└── music.mid         # Festive melody (MIDI or MP3 format)
 ```
 
-## 🚀 Встановлення та налаштування
+## 🚀 Setup & Installation
 
-### 1. Клонування репозиторію
+### 1. Clone the Repository
 ```bash
 git clone https://github.com
 cd MyBirthday
 ```
 
-### 2. Встановлення залежностей
-Для роботи системних сповіщень потрібна бібліотека `plyer`. Встановіть її через pip:
+### 2. Install Dependencies
+The script relies on the `plyer` package for system notifications. Install it via pip:
 ```bash
 pip install plyer
 ```
 
-### 3. Налаштування дати народження
-Скрипт зберігає налаштування у папці користувача `AppData`. Створіть файл конфігурації за цим шляхом:
-`C:\Users\ІМ'Я_КОРИСТУВАЧА\AppData\Roaming\birthday_config.json`
+### 3. Configure Your Birthday
+The script reads your birthday configuration from the Windows `AppData` directory. Create a configuration file at the following path:
+`C:\Users\<YOUR_USERNAME>\AppData\Roaming\birthday_config.json`
 
-Внесіть у нього вашу дату народження у форматі `РРРР-ММ-ДД`:
+Add your birthday inside the JSON file using the `YYYY-MM-DD` format:
 ```json
 {
   "birthday": "2005-08-15"
 }
 ```
 
-## 🛠️ Запуск скрипту
+## 🛠️ Usage
 
-Просто запустіть скрипт через консоль (перший запуск автоматично пропише його в автозавантаження):
+Simply run the script via your terminal. The initial run will automatically register the program into your Windows Startup:
 ```bash
 python birthday.py
 ```
 
-### 🥷 Запуск без консольного вікна (Фоновий режим)
-Щоб при запуску Windows не з'являлося чорне вікно консолі, ви можете змінити розширення файлу з `.py` на `.pyw` (наприклад, `birthday.pyw`) або скомпілювати його в `.exe` за допомогою PyInstaller:
+### 🥷 Running Silently (Background Mode)
+To prevent the black console window from popping up every time Windows boots, you can change the file extension from `.py` to `.pyw` (e.g., `birthday.pyw`), or compile it into a standalone executable using PyInstaller:
 ```bash
 pip install pyinstaller
 pyinstaller --noconsole --onefile birthday.py
 ```
 
-## 📝 Ліцензія
-Цей проєкт є повністю відкритим та безкоштовним. Використані медіафайли (наприклад, музика) взяті з публічного надбання (Public Domain).
+## 📝 License
+This project is open-source and free to use. Media assets used within this project (such as audio) are sourced from the Public Domain.
