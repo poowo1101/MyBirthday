@@ -3,19 +3,21 @@
 A simple and lightweight Python script for Windows that automatically starts with your system, counts down the days until your birthday, and brings a festive mood on your special day!
 
 ## ✨ Features
-* ⚙️ **Windows Startup Integration:** Automatically adds itself to the Windows Registry (`CurrentVersion\Run`) to run in the background upon system boot.
+* ⚙️ **Windows Startup Integration:** Automatically registers itself into the Windows Registry (`CurrentVersion\Run`) to run silently in the background upon system boot.
 * 📅 **Smart Countdown:** Accurately calculates days until your next birthday, handling leap years seamlessly (even if you were born on February 29th!).
 * 🔔 **Native Notifications:** Utilizes the `plyer` library to display beautiful Windows desktop notifications.
-* 🎉 **Celebration Mode:** When the big day arrives, it flashes a celebration notice and automatically opens a birthday cake image alongside your festive music.
+* 🎉 **Celebration Mode:** When the big day arrives, it flashes a celebration notice and automatically opens your birthday image alongside your festive music track.
 
 ## 📁 Project Structure
-For the script to work properly, make sure your project directory is structured as follows:
+Based on your local workspace, the project directory is structured as follows:
 ```text
-MyBirthday/
+My birthday/
 │
-├── birthday.py       # Main Python script
-├── cake.png          # Birthday cake image
-└── music.mid         # Festive melody (MIDI or MP3 format)
+├── birthday.pyw      # Main Python script (runs silently without console window)
+├── image.png         # Birthday celebratory image
+├── music.mp3         # Festive background music track
+├── requirements.txt  # Project dependencies
+└── setup.py          # Setup script for initialization
 ```
 
 ## 🚀 Setup & Installation
@@ -23,13 +25,13 @@ MyBirthday/
 ### 1. Clone the Repository
 ```bash
 git clone https://github.com
-cd MyBirthday
+cd "My birthday"
 ```
 
 ### 2. Install Dependencies
-The script relies on the `plyer` package for system notifications. Install it via pip:
+Install all required packages (like `plyer`) listed in your configuration using pip:
 ```bash
-pip install plyer
+pip install -r requirements.txt
 ```
 
 ### 3. Configure Your Birthday
@@ -43,19 +45,16 @@ Add your birthday inside the JSON file using the `YYYY-MM-DD` format:
 }
 ```
 
-## 🛠️ Usage
+## 🛠️ Usage & Testing
 
-Simply run the script via your terminal. The initial run will automatically register the program into your Windows Startup:
+To initialize the script and automatically add it to the Windows Startup registry, run the following command in your terminal:
 ```bash
-python birthday.py
+python birthday.pyw
 ```
 
-### 🥷 Running Silently (Background Mode)
-To prevent the black console window from popping up every time Windows boots, you can change the file extension from `.py` to `.pyw` (e.g., `birthday.pyw`), or compile it into a standalone executable using PyInstaller:
-```bash
-pip install pyinstaller
-pyinstaller --noconsole --onefile birthday.py
-```
+### 🥷 How It Works in the Background
+* Because the script uses the `.pyw` extension, it will run completely invisibly without opening a black command prompt window.
+* You can verify that it is active and scheduled to run on boot by opening **Task Manager** (`Ctrl + Shift + Esc`) and checking the **Startup apps** tab for the entry.
 
 ## 📝 License
-This project is open-source and free to use. Media assets used within this project (such as audio) are sourced from the Public Domain.
+This project is open-source and free to use. Media assets used within this project are sourced from the Public Domain.
